@@ -6,9 +6,9 @@ import platform
 import numpy as np 
 import cv2
 
-enc .load_weights('C:\\Dev\\deepfake\\models\\encoder.h5')
-decoderA.load_weights('C:\\Dev\\deepfake\\models\\decoder_A.h5')
-decoderB.load_weights('C:\\Dev\\deepfake\\models\\decoder_B.h5')
+enc .load_weights('/home/amer/deepfake/models/encoder.h5')
+decoderA.load_weights('/home/amer/deepfake/models/decoder_A.h5')
+decoderB.load_weights('/home/amer/deepfake/models/decoder_B.h5')
 
 vid = Video()
 training_util = Training_Utilities()
@@ -29,7 +29,7 @@ elif platform.system() == 'Linux':
 else:
     pass
 
-vid.video_to_images('C:\\Dev\\deepfake\\musk.mp4', 'faceswap')
+vid.video_to_images('/home/amer/deepfake/musk.mp4', 'faceswap')
 # turn into (256, 256, 3)
 vid.resize_images('faceswap', 'faceswap_resized')
 
@@ -40,9 +40,9 @@ ori = os.getcwd()
 tar = os.getcwd() + 'faceswap_resized'
 vid.move_file('image', ori, tar, ori)
 
-if int(len(os.listdir('C:\\Dev\\deepfake\\faceswap_resized'))) > 0:
+if int(len(os.listdir('/home/amer/deepfake/faceswap_resized'))) > 0:
     if platform.system() == 'Windows':
-        file_direc = 'C:\\Dev\\deepfake\\finished_vid\\'
+        file_direc = '/home/amer/deepfake/finished_vid\\'
 
     elif platform.system() == 'Linux':
         file_direc = '/home/ali/Dev/deepfake/finished_vid/'
@@ -50,7 +50,7 @@ if int(len(os.listdir('C:\\Dev\\deepfake\\faceswap_resized'))) > 0:
     else:
         pass
 
-vid.make_dir('C:\\Dev\\deepfake\\finished_vid')
+vid.make_dir('/home/amer/deepfake/finished_vid')
 
 trump = 'trump.mp4'
 unsorted_img_paths = []
@@ -73,7 +73,7 @@ print(f"Unsorted image paths are: {unsorted_img_paths}")
 numbered_images = []
 for images in unsorted_img_paths:
     image = str(images.rstrip('.jpg'))
-    numbered_images.append(int(image.lstrip('C:\\Dev\\deepfake\\faceswap_resized\\')))
+    numbered_images.append(int(image.lstrip('/home/amer/deepfake/faceswap_resized\\')))
 
 for i in range(len(numbered_images)):
     for y in range(i + 1, len(numbered_images)):
@@ -83,7 +83,7 @@ for i in range(len(numbered_images)):
             numbered_images[y] = z
 
 for x in numbered_images:
-    img_paths.append('C:\\Dev\\deepfake\\faceswap_resized\\' + str(x) + '.jpg')
+    img_paths.append('/home/amer/deepfake/faceswap_resized\\' + str(x) + '.jpg')
     
 print(f"Img paths is: {img_paths}")
 
@@ -118,12 +118,12 @@ else:
         i += 1 
 
 #Checks the length if of the finished vid directory 
-if int(len(os.listdir('C:\\Dev\\deepfake\\finished_vid'))) > 0:
+if int(len(os.listdir('/home/amer/deepfake/finished_vid'))) > 0:
     vid.convert_frame_to_video('finished_vid')
 
 else:
     ori = os.getcwd()
-    vid.move_file('image', ori, 'C:\\Dev\\deepfake\\finished_vid', ori)
+    vid.move_file('image', ori, '/home/amer/deepfake/finished_vid', ori)
     vid.convert_frame_to_video('finished_vid')
 
 

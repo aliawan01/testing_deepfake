@@ -11,9 +11,9 @@ from PIL import Image
 import matplotlib.pyplot as plt
 
 
-enc.load_weights('C:\\Dev\\deepfake\\new_models\\encoder.h5')
-decoderA.load_weights('C:\\Dev\\deepfake\\new_models\\decoder_A.h5')
-decoderB.load_weights('C:\\Dev\\deepfake\\new_models\\decoder_B.h5')
+enc.load_weights('/home/amer/deepfake/new_models/encoder.h5')
+decoderA.load_weights('/home/amer/deepfake/new_models/decoder_A.h5')
+decoderB.load_weights('/home/amer/deepfake/new_models/decoder_B.h5')
 
 init(autoreset=True)
 
@@ -30,7 +30,7 @@ def convert_one_image( autoencoder, image ):
     new_image[crop,crop] = new_face
     return new_image
 
-original_image = 'C:\\Dev\\deepfake\\trump\\3.jpg'
+original_image = '/home/amer/deepfake/trump\\3.jpg'
 read_image = cv2.imread(original_image)
 new = convert_one_image(aeB, read_image)
 plt.imshow(new)
@@ -38,7 +38,7 @@ plt.title("image", fontweight="bold")
 plt.show()
 
 '''
-original_image = 'C:\\Dev\\deepfake\\musk\\3.jpg'
+original_image = '/home/amer/deepfake/musk\\3.jpg'
 read_image = cv2.imread(original_image)
 expanded_image = cv2.resize(read_image, (64, 64))
 expanded_image = np.expand_dims(expanded_image, axis=0)
@@ -63,10 +63,10 @@ cropped_face = read_image
 
 
 
-#img = cv2.imwrite("C:\\Dev\\deepfake\\new_thing.jpg", np.array(img))
-plt.imsave('C:\\Dev\\deepfake\\new_img.jpg', new_img)
+#img = cv2.imwrite("/home/amer/deepfake/new_thing.jpg", np.array(img))
+plt.imsave('/home/amer/deepfake/new_img.jpg', new_img)
 
-#cv2.imwrite("C:\\Dev\\deepfake\\new_image.jpg", new_img)
+#cv2.imwrite("/home/amer/deepfake/new_image.jpg", new_img)
 #if img == False:
 #    print(Fore.RED + "Could not save image")
 #elif img == True:
