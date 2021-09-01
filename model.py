@@ -82,21 +82,21 @@ enc_yaml = enc.to_yaml()
 with open("enc.yaml", "w") as yaml_file:
     yaml_file.write(enc_yaml)
 
-enc.save_weights("/home/amer/deepfake/models/encoder.h5")
+enc.save_weights("/root/deepfake/models/encoder.h5")
 print("Saved model to disk")
 
 da_yaml = decoderA.to_yaml()
 with open("decoderA.yaml", "w") as yaml_file:
     yaml_file.write(da_yaml)
 
-decoderA.save_weights("/home/amer/deepfake/models/decoder_A.h5")
+decoderA.save_weights("/root/deepfake/models/decoder_A.h5")
 print("Saved model to disk")
 
 db_yaml = decoderB.to_yaml()
 with open("decoderB.yaml", "w") as yaml_file:
     yaml_file.write(db_yaml)
 
-decoderB.save_weights("/home/amer/deepfake/models/decoder_B.h5")
+decoderB.save_weights("/root/deepfake/models/decoder_B.h5")
 print("Saved model to disk")
 '''
 
@@ -112,12 +112,12 @@ aeB.compile(optimizer=OPTIMIZER, loss=LOSS)
 
 
 def load_weights():
-    enc .load_weights('/home/amer/deepfake/models/encoder.h5')
-    decoderA.load_weights('/home/amer/deepfake/models/decoder_A.h5')
-    decoderB.load_weights('/home/amer/deepfake/models/decoder_B.h5')
+    enc .load_weights('/root/deepfake/models/encoder.h5')
+    decoderA.load_weights('/root/deepfake/models/decoder_A.h5')
+    decoderB.load_weights('/root/deepfake/models/decoder_B.h5')
 
 def save_weights():
-    enc .save_weights('/home/amer/deepfake/models/encoder.hdf5')
-    decoderA.save_weights('/home/amer/deepfake/models/decoder_A.h5')
-    decoderB.save_weights('/home/amer/deepfake/models/decoder_B.h5')
+    enc .save_weights('/root/deepfake/models/encoder.hdf5')
+    decoderA.save_weights('/root/deepfake/models/decoder_A.h5')
+    decoderB.save_weights('/root/deepfake/models/decoder_B.h5')
 
